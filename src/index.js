@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import {Mercury} from "./components/Mercury.js"
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Mercury />
   </React.StrictMode>,
   document.getElementById('root')
 );

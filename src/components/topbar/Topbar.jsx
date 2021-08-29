@@ -3,7 +3,7 @@ import "./topbar.css"
 import mercurylogo from "../images/mercurylogo.png"
 import {NotificationsNone, Language, Settings} from '@material-ui/icons/';
 
-export default function Topbar() {
+export const Topbar = () => {
     return (
         <div className="topbar">
             <div className="topbarwrapper">
