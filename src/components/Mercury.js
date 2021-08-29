@@ -1,6 +1,7 @@
 import { Sidebar } from "./sidebar/sidebar";
 import { Topbar } from "./topbar/Topbar";
 import "./Mercury.css"
+import { Home } from "./pages/home/Home";
 
 
 export const Mercury = () => {
@@ -9,7 +10,7 @@ export const Mercury = () => {
       <Topbar/>
       <div className="container">
         <Sidebar/>
-        <div className="others">other pages</div>
+        <Home/>
       </div>
     </div>
   );
