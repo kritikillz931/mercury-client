@@ -59,6 +59,9 @@ export const WidgetsLarge = () => {
                             <td className="widgetsLargeAmount">$122.00</td>
                             <td className="widgetsLargeStatus"><Button type="Approved"/></td>
                     </tr>
+
+
+                            
                 </table>
         </div>
     )
