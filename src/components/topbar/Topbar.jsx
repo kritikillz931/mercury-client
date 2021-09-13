@@ -2,13 +2,14 @@ import React from 'react'
 import "./topbar.css"
 import mercurylogo from "../images/mercurylogo.png"
 import {NotificationsNone, Language, Settings} from '@material-ui/icons/';
+import { Link } from 'react-router-dom';
 
 export const Topbar = () => {
     return (
         <div className="topbar">
             <div className="topbarwrapper">
                 <div className="topLeft">
-                    <span className="logo"><img className="mercuryImg" src={mercurylogo}/></span>
+                    <span className="logo"><Link to="/"><img className="mercuryImg" src={mercurylogo}/></Link></span>
                 </div>
                 <div className="topRight">
                     <div className="topbarIconContainer">

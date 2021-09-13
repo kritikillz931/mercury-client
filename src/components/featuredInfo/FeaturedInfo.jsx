@@ -1,8 +1,32 @@
 import "./FeaturedInfo.css"
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons"
+import { useContext, useEffect } from "react"
+import { MonthlyContext } from "./featuredInfoProvider"
 export const FeaturedInfo = () => {
+// const { info, getInfo } = useContext(MonthlyContext)
+    
+    useEffect(() => {
+        // getInfo()
+    }, [])
+    
+    
+    
     return (
-        <div className="featured">
+
+        <article className="monthlyInfo">
+            {
+
+                // info.map(i => {
+                //     return <section key={`i--${i.id}`} className="i">
+                //         <div className="i_Revenue">{i.revenue}</div>
+
+                //     </section>
+                // })
+
+
+            }
+
+        {/* <div className="featured">
             <div className="featuredItem">
             <span className="featuredTitle">Revenue</span>
             <div className="featuredMoneyContainer">
@@ -33,6 +57,7 @@ export const FeaturedInfo = () => {
             </div>
             <div className="span featuredSub">Compared to last month</div>
             </div>
-            </div>
+            </div> */}
+        </article>
     )
 }
