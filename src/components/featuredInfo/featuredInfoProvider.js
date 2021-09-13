@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 
 export const MonthlyContext = React.createContext()
 
 export const FeaturedInfoProvider = (props) => {
-    const [ info, setInfo ] = useState([])
+    const [ monthlyInfo, setMonthlyInfo ] = useState([])
 
-    const getInformation = () => {
-        return fetch("http://localhost:8000/Monthly", {
+    const getMonthlyInformation = () => {
+        return fetch("http://localhost:8000/monthlyfinances", {
             headers:{
                 "Authorization": `Token ${localStorage.getItem("m_token")}`
             }
         })
             .then(response => response.json())
-            .then(setInfo)
+            .then(setMonthlyInfo)
         }
         
         return (
-            <MonthlyContext.Provider value={{ info, getInformation }} >
+            <MonthlyContext.Provider value={{ monthlyInfo, getMonthlyInformation }} >
         { props.children }
     </MonthlyContext.Provider>
 )
