@@ -9,6 +9,7 @@ import { NewUser } from "./pages/newUser/newUser";
 import React from "react"
 import { ApplicationViews } from "./ApplicationViews";
 import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
 
 
 export const Mercury = () => {
@@ -17,14 +18,16 @@ export const Mercury = () => {
         <Route render={() => {
             if (localStorage.getItem("m_token")) {
                 return <>
+                <Route render={Sidebar} />
                     <Route render={props => <ApplicationViews {...props} />} />
                 </>
             } else {
-              return <Login />
+              return <Redirect to="/login" />
             
           }
         }} />
-
+                    <Route path="/login" render={Login} />
+        <Route path="/register" render={Register} />
         </>
   );
 }

@@ -3,10 +3,10 @@ import { ArrowDownward, ArrowUpward } from "@material-ui/icons"
 import { useContext, useEffect } from "react"
 import { MonthlyContext } from "./featuredInfoProvider"
 export const FeaturedInfo = () => {
-const { info, getInfo } = useContext(MonthlyContext)
+// const { info, getInfo } = useContext(MonthlyContext)
     
     useEffect(() => {
-        getInfo()
+        // getInfo()
     }, [])
     
     
@@ -16,12 +16,12 @@ const { info, getInfo } = useContext(MonthlyContext)
         <article className="monthlyInfo">
             {
 
-                info.map(i => {
-                    return <section key={`i--${i.id}`} className="i">
-                        <div className="i_Revenue">{i.revenue}</div>
+                // info.map(i => {
+                //     return <section key={`i--${i.id}`} className="i">
+                //         <div className="i_Revenue">{i.revenue}</div>
 
-                    </section>
-                })
+                //     </section>
+                // })
 
 
             }
