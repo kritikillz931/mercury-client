@@ -8,6 +8,7 @@ import { User } from "./pages/user/User";
 import { NewUser } from "./pages/newUser/newUser";
 import React from "react"
 import { Login } from "./auth/Login";
+import { FeaturedInfoProvider } from "./featuredInfo/featuredInfoProvider";
 
 
 
@@ -24,9 +25,12 @@ export const ApplicationViews = () => {
     <div className="container">
       <Sidebar/>
       <Switch>
+        <FeaturedInfoProvider>
+
         <Route exact path="/">
           <Home />
         </Route>
+        </FeaturedInfoProvider>
         <Route path="/users">
           <UserList/>
         </Route>

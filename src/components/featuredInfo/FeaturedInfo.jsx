@@ -1,63 +1,66 @@
 import "./FeaturedInfo.css"
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons"
-import { useContext, useEffect } from "react"
-import { MonthlyContext } from "./featuredInfoProvider"
-export const FeaturedInfo = () => {
-// const { info, getInfo } = useContext(MonthlyContext)
-    
+import { useContext, useEffect, useState } from "react"
+import { MonthlyContext } from "./featuredInfoProvider.js"
+
+
+
+
+export const FeaturedInfo = (props) => {
+
+const { monthlyInfo, getMonthlyInformation } = useContext(MonthlyContext)
+    const [thisMonth, setThisMonth] = useState([])
     useEffect(() => {
-        // getInfo()
+        getMonthlyInformation()
     }, [])
+    useEffect(() => {
+        setThisMonth(monthlyInfo.filter(i => i.month === "September"))
+    }, [monthlyInfo])
+    console.log(thisMonth)
     
-    
+    console.log(monthlyInfo)
     
     return (
 
         <article className="monthlyInfo">
-            {
+            {/* {
 
-                // info.map(i => {
-                //     return <section key={`i--${i.id}`} className="i">
-                //         <div className="i_Revenue">{i.revenue}</div>
+                monthlyInfo.map(i => {
+                    return <section key={`i--${i.id}`} className="i">
+                        <div className="i__revenue">{i.revenue}</div>
 
-                //     </section>
-                // })
+                    </section>
+                })
+            } */}
 
 
-            }
 
-        {/* <div className="featured">
+            <div className="featured">
             <div className="featuredItem">
-            <span className="featuredTitle">Revenue</span>
+            <span className="featuredTitle">Profit</span>
             <div className="featuredMoneyContainer">
-            <span className="featuredMoney">$2,415</span>
-            <span className="featuredMoneyRate">
-                -11.4 <ArrowDownward className="featuredIcon negative"/>
-            </span>
+            <span className="featuredMoney">{thisMonth[0]?.profit}</span>
+
             </div>
-            <div className="span featuredSubTitle">Compared to last month</div>
+            <div className="span featuredSubTitle">this months profit margins</div>
             </div>
             <div className="featuredItem">
             <span className="featuredTitle">Sales</span>
             <div className="featuredMoneyContainer">
-            <span className="featuredMoney">$4,415</span>
-            <span className="featuredMoneyRate">
-                -1.4 <ArrowDownward className="featuredIcon negative"/>
-            </span>
+            <span className="featuredMoney">{thisMonth[0]?.revenue}</span>
+
             </div>
-            <div className="span featuredSubTitle">Compared to last month</div>
+            <div className="span featuredSubTitle">this months sales margins</div>
             </div>
             <div className="featuredItem">
             <span className="featuredTitle">Cost</span>
             <div className="featuredMoneyContainer">
-            <span className="featuredMoney">$2,225</span>
-            <span className="featuredMoneyRate">
-                +2.4 <ArrowUpward className="featuredIcon"/>
-            </span>
+            <span className="featuredMoney">{thisMonth[0]?.cost}</span>
+
             </div>
-            <div className="span featuredSub">Compared to last month</div>
+            <div className="span featuredSub">this months business costs</div>
             </div>
-            </div> */}
+            </div>
         </article>
     )
 }

@@ -18,7 +18,6 @@ export const Mercury = () => {
         <Route render={() => {
             if (localStorage.getItem("m_token")) {
                 return <>
-                <Route render={Sidebar} />
                     <Route render={props => <ApplicationViews {...props} />} />
                 </>
             } else {
