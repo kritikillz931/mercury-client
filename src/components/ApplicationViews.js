@@ -9,6 +9,8 @@ import { NewUser } from "./pages/newUser/newUser";
 import React from "react"
 import { Login } from "./auth/Login";
 import { FeaturedInfoProvider } from "./featuredInfo/featuredInfoProvider";
+import { ChartData } from "./charts/ChartData";
+import { EmployeeProvider } from "./employees/EmployeeProvider";
 
 
 
@@ -26,10 +28,13 @@ export const ApplicationViews = () => {
       <Sidebar/>
       <Switch>
         <FeaturedInfoProvider>
+          <EmployeeProvider>
+
 
         <Route exact path="/">
           <Home />
         </Route>
+          </EmployeeProvider>
         </FeaturedInfoProvider>
         <Route path="/users">
           <UserList/>
