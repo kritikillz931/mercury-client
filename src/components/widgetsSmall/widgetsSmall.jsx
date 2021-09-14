@@ -9,80 +9,40 @@ export const WidgetsSmall = (props) => {
     useEffect(() => {
         getEmployees()
     }, [])
-console.log(employee)
+  
 
-        
+    let salesReps = employee.filter(e => e.position === "Sales Rep")
+    let sortedReps = salesReps.sort(function(a,b){
+        return b.monthlySales - a.monthlySales
+    })
+    let topThree = sortedReps.slice(0,3)
 
-            employee.map(e => {
-                return <section key={`e--${e.id}`} className="e">
-                    <div className="e__name">{e.first_name}</div>
-
-                </section>
-            })
-        
+    
     
     return (
         <div className="widgetsSmall">
-            <span className="widgetsSmallTitle">New Members</span>
+            <span className="widgetsSmallTitle">Top 3 Sales Reps</span>
             <ul className="widgetsSmallList">
-                <li className="widgetsSmallListItem">
-                    <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsSmallImg" />
-                    <div className="widgetsSmallUser">
-                        <span className="widgetsSmallUsername">Anna Keller</span>
-                        <span className="widgetsSmallUserTitle">Software Engineer</span>
-                    </div>
-                    <button className="widgetsSmallButton">
-                        <Visibility className="widgetsSmallIcon"/>
-                        Display
-                    </button>
-                </li>
-                <li className="widgetsSmallListItem">
-                    <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsSmallImg" />
-                    <div className="widgetsSmallUser">
-                        <span className="widgetsSmallUsername">Anna Keller</span>
-                        <span className="widgetsSmallUserTitle">Software Engineer</span>
-                    </div>
-                    <button className="widgetsSmallButton">
-                        <Visibility className="widgetsSmallIcon"/>
-                        Display
-                    </button>
-                </li>
-                <li className="widgetsSmallListItem">
-                    <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsSmallImg" />
-                    <div className="widgetsSmallUser">
-                        <span className="widgetsSmallUsername">Anna Keller</span>
-                        <span className="widgetsSmallUserTitle">Software Engineer</span>
-                    </div>
-                    <button className="widgetsSmallButton">
-                        <Visibility className="widgetsSmallIcon"/>
-                        Display
-                    </button>
-                </li>
-                <li className="widgetsSmallListItem">
-                    <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsSmallImg" />
-                    <div className="widgetsSmallUser">
-                        <span className="widgetsSmallUsername">Anna Keller</span>
-                        <span className="widgetsSmallUserTitle">Software Engineer</span>
-                    </div>
-                    <button className="widgetsSmallButton">
-                        <Visibility className="widgetsSmallIcon"/>
-                        Display
-                    </button>
-                </li>
-                <li className="widgetsSmallListItem">
-                    <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsSmallImg" />
-                    <div className="widgetsSmallUser">
-                        <span className="widgetsSmallUsername">Anna Keller</span>
-                        <span className="widgetsSmallUserTitle">Software Engineer</span>
-                    </div>
-                    <button className="widgetsSmallButton">
-                        <Visibility className="widgetsSmallIcon"/>
-                        Display
-                    </button>
-                </li>
+                
+{            topThree.map(e => {
+
+                return <li className="widgetsSmallListItem">
+                <img src={e.image} alt="" className="widgetsSmallImg" />
+                <div className="widgetsSmallUser">
+                    <span className="widgetsSmallUsername">{e.user.first_name} {e.user.last_name}</span>
+                    <span className="widgetsSmallUserTitle">Monthly Sales - {e.monthlySales}</span>
+                </div>
+                <button className="widgetsSmallButton">
+                    <Visibility className="widgetsSmallIcon" />
+                    Display
+                </button>
+            </li>
+            })}
+
+
             </ul>
         </div>
     )
-    
-    
+
+
 }
