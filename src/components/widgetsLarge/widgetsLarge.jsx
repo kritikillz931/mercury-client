@@ -1,67 +1,70 @@
+import { useEffect } from "react"
+import { useContext } from "react"
+import { TransactionContext } from "../pages/transactions/TransactionsProvider"
+import { ProductContext } from "../products/ProductsProvider"
 import "./widgetsLarge.css"
 
 export const WidgetsLarge = () => {
+    const { transaction, getTransactions } = useContext(TransactionContext)
+    const { product, getProducts } = useContext(ProductContext)
+    useEffect(() => {
+        getTransactions()
+        .then(getProducts)
+    }, [])
+
+    let completedTransactions = transaction.filter(t => t.quantitySold >= 1)
     
-    const Button = ({type}) => {
-        return<button className={"widgetsLargeButton " + type}>{type}</button>
-    }
+    
+    
+
+
+    let productSaleTotals = []
+    product.forEach(item => {
+        let sum = 0;
+        transaction.forEach(trans => {
+            console.log(trans)
+            if (trans.product.id === item.id) {
+                sum += trans.priceSold * trans.quantitySold
+            }
+        })
+        productSaleTotals.push({"image": item.image, "name":item.name, "revenue": sum})
+    })
+    console.log(productSaleTotals)
+
+    let sortedTransactions = productSaleTotals.sort(function(a,b){
+        return b.quantitySold - a.quantitySold
+    })
+    let topThree = sortedTransactions.slice(0,3)
+    console.log(topThree)
+
+
     return (
         <div className="widgetsLarge">
             <h3 className="widgetsLargeTitle">
-                Latest Transactions</h3>
+                Top 3 Products</h3>
                 <table className="widgetsLargeTable">
                     <tr className="widgetLargeTr">
-                        <th className="widgetsLargeTh">Customer</th>
-                        <th className="widgetsLargeTh">Date</th>
-                        <th className="widgetsLargeTh">Amount</th>
-                        <th className="widgetsLargeTh">Status</th>
+                        <th className="widgetsLargeTh">Product</th>
+                        <th className="widgetsLargeTh">Revenue</th>
                     </tr>
-                    <tr className="widgetLargeTr">
+
+{   topThree.map(t => {
+
+
+
+
+
+
+                 return   <tr className="widgetLargeTr">
                         <td className="widgetsLargeUser">
-                            <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsLargeImg" />
-                            <span className="widgetLargeName">Susan Carol</span>
-                        </td>
                             
-                            <td className="widgetsLargeDate">2 Jun 2021</td>
-                            <td className="widgetsLargeAmount">$122.00</td>
-                            <td className="widgetsLargeStatus"><Button type="Approved"/></td>
-                    </tr>
-
-                    <tr className="widgetLargeTr">
-                        <td className="widgetsLargeUser">
-                            <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsLargeImg" />
-                            <span className="widgetLargeName">Susan Carol</span>
-                        </td>
-                            
-                            <td className="widgetsLargeDate">2 Jun 2021</td>
-                            <td className="widgetsLargeAmount">$122.00</td>
-                            <td className="widgetsLargeStatus"><Button type="Declined"/></td>
-                    </tr>
-
-                    <tr className="widgetLargeTr">
-                        <td className="widgetsLargeUser">
-                            <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsLargeImg" />
-                            <span className="widgetLargeName">Susan Carol</span>
-                        </td>
-                            
-                            <td className="widgetsLargeDate">2 Jun 2021</td>
-                            <td className="widgetsLargeAmount">$122.00</td>
-                            <td className="widgetsLargeStatus"><Button type="Pending"/></td>
-                    </tr>
-
-                    <tr className="widgetLargeTr">
-                        <td className="widgetsLargeUser">
-                            <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsLargeImg" />
-                            <span className="widgetLargeName">Susan Carol</span>
-                        </td>
-                            
-                            <td className="widgetsLargeDate">2 Jun 2021</td>
-                            <td className="widgetsLargeAmount">$122.00</td>
-                            <td className="widgetsLargeStatus"><Button type="Approved"/></td>
-                    </tr>
-
-
-                            
+                            <img src={t.image}
+                            className="widgetsLargeImg" />
+                            <span className="widgetLargeName">{t.name}</span>
+                        </td> 
+                            <td className="widgetsLargeAmount">{t.revenue}</td>
+                    </tr>                         
+})}
                 </table>
         </div>
     )
