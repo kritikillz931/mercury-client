@@ -16,9 +16,6 @@ const { monthlyInfo, getMonthlyInformation } = useContext(MonthlyContext)
     useEffect(() => {
         setThisMonth(monthlyInfo.filter(i => i.month === "September"))
     }, [monthlyInfo])
-    console.log(thisMonth)
-    
-    console.log(monthlyInfo)
     
     return (
 
