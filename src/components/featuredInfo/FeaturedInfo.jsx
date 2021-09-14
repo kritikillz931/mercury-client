@@ -36,7 +36,7 @@ const { monthlyInfo, getMonthlyInformation } = useContext(MonthlyContext)
             <div className="featuredItem">
             <span className="featuredTitle">Profit</span>
             <div className="featuredMoneyContainer">
-            <span className="featuredMoney">{thisMonth[0]?.profit}</span>
+            <span className="featuredMoney">{new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD' }).format(thisMonth[0]?.profit)}</span>
 
             </div>
             <div className="span featuredSubTitle">this months profit margins</div>
@@ -44,7 +44,7 @@ const { monthlyInfo, getMonthlyInformation } = useContext(MonthlyContext)
             <div className="featuredItem">
             <span className="featuredTitle">Sales</span>
             <div className="featuredMoneyContainer">
-            <span className="featuredMoney">{thisMonth[0]?.revenue}</span>
+            <span className="featuredMoney">{new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD' }).format(thisMonth[0]?.revenue)}</span>
 
             </div>
             <div className="span featuredSubTitle">this months sales margins</div>
@@ -52,7 +52,7 @@ const { monthlyInfo, getMonthlyInformation } = useContext(MonthlyContext)
             <div className="featuredItem">
             <span className="featuredTitle">Cost</span>
             <div className="featuredMoneyContainer">
-            <span className="featuredMoney">{thisMonth[0]?.cost}</span>
+            <span className="featuredMoney">{new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD' }).format(thisMonth[0]?.cost)}</span>
 
             </div>
             <div className="span featuredSub">this months business costs</div>
