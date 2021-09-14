@@ -45,4 +45,4 @@ export const WidgetsSmall = (props) => {
     )
 
 
-}
+ }

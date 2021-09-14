@@ -11,6 +11,7 @@ import { Login } from "./auth/Login";
 import { FeaturedInfoProvider } from "./featuredInfo/featuredInfoProvider";
 import { ChartData } from "./charts/ChartData";
 import { EmployeeProvider } from "./employees/EmployeeProvider";
+import { ProductProvider } from "./products/ProductsProvider";
 
 
 
@@ -28,13 +29,16 @@ export const ApplicationViews = () => {
       <Sidebar/>
       <Switch>
         <FeaturedInfoProvider>
+            <ProductProvider>
           <EmployeeProvider>
+
 
 
         <Route exact path="/">
           <Home />
         </Route>
           </EmployeeProvider>
+            </ProductProvider>
         </FeaturedInfoProvider>
         <Route path="/users">
           <UserList/>

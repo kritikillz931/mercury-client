@@ -1,67 +1,50 @@
+import { useEffect } from "react"
+import { useContext } from "react"
+import { ProductContext } from "../products/ProductsProvider"
 import "./widgetsLarge.css"
 
 export const WidgetsLarge = () => {
-    
-    const Button = ({type}) => {
-        return<button className={"widgetsLargeButton " + type}>{type}</button>
-    }
+    const { product, getProducts } = useContext(ProductContext)
+    useEffect(() => {
+        getProducts()
+    }, [])
+
+    let soldProducts = product.filter(p => p.quantitySold >= 1)
+    let sortedProducts = soldProducts.sort(function(a,b){
+        return b.quantitySold - a.quantitySold
+    })
+    let topThree = sortedProducts.slice(0,3)
+    console.log(topThree)
+
     return (
         <div className="widgetsLarge">
             <h3 className="widgetsLargeTitle">
-                Latest Transactions</h3>
+                Top 3 Products</h3>
                 <table className="widgetsLargeTable">
                     <tr className="widgetLargeTr">
-                        <th className="widgetsLargeTh">Customer</th>
+                        <th className="widgetsLargeTh">Product</th>
                         <th className="widgetsLargeTh">Date</th>
-                        <th className="widgetsLargeTh">Amount</th>
-                        <th className="widgetsLargeTh">Status</th>
+                        <th className="widgetsLargeTh">Amount Sold</th>
                     </tr>
-                    <tr className="widgetLargeTr">
+
+{   topThree.map(p => {
+
+
+
+
+
+
+                 return   <tr className="widgetLargeTr">
                         <td className="widgetsLargeUser">
-                            <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsLargeImg" />
-                            <span className="widgetLargeName">Susan Carol</span>
-                        </td>
                             
+                            <img src={p.image}
+                            className="widgetsLargeImg" />
+                            <span className="widgetLargeName">{p.product.name}</span>
+                        </td> 
                             <td className="widgetsLargeDate">2 Jun 2021</td>
                             <td className="widgetsLargeAmount">$122.00</td>
-                            <td className="widgetsLargeStatus"><Button type="Approved"/></td>
-                    </tr>
-
-                    <tr className="widgetLargeTr">
-                        <td className="widgetsLargeUser">
-                            <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsLargeImg" />
-                            <span className="widgetLargeName">Susan Carol</span>
-                        </td>
-                            
-                            <td className="widgetsLargeDate">2 Jun 2021</td>
-                            <td className="widgetsLargeAmount">$122.00</td>
-                            <td className="widgetsLargeStatus"><Button type="Declined"/></td>
-                    </tr>
-
-                    <tr className="widgetLargeTr">
-                        <td className="widgetsLargeUser">
-                            <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsLargeImg" />
-                            <span className="widgetLargeName">Susan Carol</span>
-                        </td>
-                            
-                            <td className="widgetsLargeDate">2 Jun 2021</td>
-                            <td className="widgetsLargeAmount">$122.00</td>
-                            <td className="widgetsLargeStatus"><Button type="Pending"/></td>
-                    </tr>
-
-                    <tr className="widgetLargeTr">
-                        <td className="widgetsLargeUser">
-                            <img src="https://iveystudio.com/wp-content/uploads/2017/06/08-8019-pp_gallery/Christina-Pham-1%28pp_w1200_h1500%29.jpg" alt="" className="widgetsLargeImg" />
-                            <span className="widgetLargeName">Susan Carol</span>
-                        </td>
-                            
-                            <td className="widgetsLargeDate">2 Jun 2021</td>
-                            <td className="widgetsLargeAmount">$122.00</td>
-                            <td className="widgetsLargeStatus"><Button type="Approved"/></td>
-                    </tr>
-
-
-                            
+                    </tr>                         
+})}
                 </table>
         </div>
     )
