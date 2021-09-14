@@ -1,20 +1,22 @@
 import { useEffect } from "react"
 import { useContext } from "react"
+import { TransactionContext } from "../pages/transactions/TransactionsProvider"
 import { ProductContext } from "../products/ProductsProvider"
 import "./widgetsLarge.css"
 
 export const WidgetsLarge = () => {
-    const { product, getProducts } = useContext(ProductContext)
+    const { transaction, getTransactions } = useContext(TransactionContext)
     useEffect(() => {
-        getProducts()
+        getTransactions()
     }, [])
 
-    let soldProducts = product.filter(p => p.quantitySold >= 1)
-    let sortedProducts = soldProducts.sort(function(a,b){
+    let completedTransactions = transaction.filter(t => t.quantitySold >= 1)
+    
+    let sortedTransactions = completedTransactions.sort(function(a,b){
         return b.quantitySold - a.quantitySold
     })
-    let topThree = sortedProducts.slice(0,3)
-    console.log(topThree)
+    let topThree = sortedTransactions.slice(0,3)
+
 
     return (
         <div className="widgetsLarge">
@@ -23,11 +25,10 @@ export const WidgetsLarge = () => {
                 <table className="widgetsLargeTable">
                     <tr className="widgetLargeTr">
                         <th className="widgetsLargeTh">Product</th>
-                        <th className="widgetsLargeTh">Date</th>
                         <th className="widgetsLargeTh">Amount Sold</th>
                     </tr>
 
-{   topThree.map(p => {
+{   topThree.map(t => {
 
 
 
@@ -37,12 +38,11 @@ export const WidgetsLarge = () => {
                  return   <tr className="widgetLargeTr">
                         <td className="widgetsLargeUser">
                             
-                            <img src={p.image}
+                            <img src={t.product.image}
                             className="widgetsLargeImg" />
-                            <span className="widgetLargeName">{p.product.name}</span>
+                            <span className="widgetLargeName">{t.product.name}</span>
                         </td> 
-                            <td className="widgetsLargeDate">2 Jun 2021</td>
-                            <td className="widgetsLargeAmount">$122.00</td>
+                            <td className="widgetsLargeAmount">{t.quantitySold}</td>
                     </tr>                         
 })}
                 </table>

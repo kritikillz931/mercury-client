@@ -12,6 +12,7 @@ import { FeaturedInfoProvider } from "./featuredInfo/featuredInfoProvider";
 import { ChartData } from "./charts/ChartData";
 import { EmployeeProvider } from "./employees/EmployeeProvider";
 import { ProductProvider } from "./products/ProductsProvider";
+import { TransactionProvider } from "./pages/transactions/TransactionsProvider";
 
 
 
@@ -31,12 +32,15 @@ export const ApplicationViews = () => {
         <FeaturedInfoProvider>
             <ProductProvider>
           <EmployeeProvider>
+            <TransactionProvider>
 
+              
 
 
         <Route exact path="/">
           <Home />
         </Route>
+            </TransactionProvider>
           </EmployeeProvider>
             </ProductProvider>
         </FeaturedInfoProvider>
