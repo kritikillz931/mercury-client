@@ -1,0 +1,68 @@
+.productInfo{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 65%;
+    justify-content: space-between;
+
+}
+
+.featuredProduct{
+    flex: 1;
+    margin: 0px 20px;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.featuredTitle{
+    font-size: 20px;
+}
+
+.featuredProductContainer{
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.featuredMoney{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.featuredMoneyRate{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.featuredIcon{
+    font-size: 14px;
+    margin-left: 15px;
+    color: green;
+}
+
+.featuredIcon.negative{
+
+    color: red;
+}
+
+.featuredSub{
+    font-size: 15px;
+    color: gray;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.featuredProductImage{
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
+    margin-right: 10px;
+}
