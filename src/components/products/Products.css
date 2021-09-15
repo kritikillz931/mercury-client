@@ -8,6 +8,7 @@
 }
 
 .featuredProduct{
+    text-align: center;
     flex: 1;
     margin: 0px 20px;
     padding: 30px;
