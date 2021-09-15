@@ -13,6 +13,7 @@ import { ChartData } from "./charts/ChartData";
 import { EmployeeProvider } from "./employees/EmployeeProvider";
 import { ProductProvider } from "./products/ProductsProvider";
 import { TransactionProvider } from "./pages/transactions/TransactionsProvider";
+import { ProductList } from "./products/ProductsList"
 
 
 
@@ -40,10 +41,6 @@ export const ApplicationViews = () => {
         <Route exact path="/">
           <Home />
         </Route>
-            </TransactionProvider>
-          </EmployeeProvider>
-            </ProductProvider>
-        </FeaturedInfoProvider>
         <Route path="/users">
           <UserList/>
         </Route>
@@ -53,6 +50,13 @@ export const ApplicationViews = () => {
         <Route path="/newUser">
           <NewUser/>
         </Route>
+        <Route path="/Products">
+          <ProductList/>
+        </Route>
+            </TransactionProvider>
+          </EmployeeProvider>
+            </ProductProvider>
+        </FeaturedInfoProvider>
       </Switch>
 
     </div>
