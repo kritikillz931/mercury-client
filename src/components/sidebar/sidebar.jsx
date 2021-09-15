@@ -17,33 +17,39 @@ export const Sidebar =() => {
                 <div className="sidebarMenu"></div>
                 <h3 className="sidebarTitle">Quick Menu</h3>
                 <ul className="sidebarList">
-                    <Link to="/products" className="link">
+                    <Link to="/Products" className="link">
 
                     <li className="sidebarListItem">
                         <Storefront className="sidebarIcon" />
                         Products
                     </li>
                     </Link>
+                    <Link to="/Transactions" className="link">
                     <li className="sidebarListItem">
                         <AttachMoney className="sidebarIcon" />
                         Transactions
                     </li>
+                    </Link>
                 </ul>
                 <div className="sidebarMenu"></div>
                 <h3 className="sidebarTitle">Staff</h3>
                 <ul className="sidebarList">
+                    <Link to="/ManageStaff" className="link" >
                     <li className="sidebarListItem">
                         <WorkOutline className="sidebarIcon" />
                         Manage
                     </li>
+                    </Link>
                 </ul>
                 <div className="sidebarMenu"></div>
                 <h3 className="sidebarTitle">User</h3>
                 <ul className="sidebarList">
+                    <Link to="/UserSettings" className="link">
                     <li className="sidebarListItem">
                         <Settings className="sidebarIcon" />
                         User Settings
                     </li>
+                    </Link>
                 </ul>
             </div>   
     )
