@@ -16,6 +16,7 @@ import { TransactionProvider } from "./pages/transactions/TransactionsProvider";
 import { ProductList } from "./products/ProductsList"
 import { ProductDetails } from "./products/ProductDetails"
 import { EmployeeList } from "./employees/EmployeeList";
+import { EmployeeDetails } from "./employees/EmployeeDetails"
 
 
 
@@ -58,8 +59,11 @@ export const ApplicationViews = () => {
         <Route path="/Products/Details">
           <ProductDetails/>
         </Route>
-        <Route path="/ManageStaff">
+        <Route path="/employees">
           <EmployeeList/>
+        </Route>
+        <Route path="/employees/employeeDetails/:employeeId(\d+)">
+          <EmployeeDetails/>
         </Route>
             </TransactionProvider>
           </EmployeeProvider>

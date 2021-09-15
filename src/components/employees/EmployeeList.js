@@ -1,13 +1,15 @@
 
 import { Button } from "@material-ui/core"
 import { useContext, useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import { EmployeeContext } from "./EmployeeProvider"
 import "../employees/Employees.css"
 
 
 export const EmployeeList = (props) => {
     const { employee, getEmployees } = useContext(EmployeeContext)
+    const {userId} = useParams()
+    const [ employeeId, setEmployeeId] = useState()
     useEffect(() => {
         getEmployees()
     }, [])
@@ -33,7 +35,7 @@ export const EmployeeList = (props) => {
                         </div>
                         <div><Button onClick={e => {
                             e.preventDefault()
-                            history.push("Employees/Details")
+                            history.push(`/Employees/employeeDetail/${e.id}`)
                         }}>Details</Button></div>
                         </div>
                         </div>
