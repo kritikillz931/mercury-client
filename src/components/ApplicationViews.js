@@ -14,6 +14,8 @@ import { EmployeeProvider } from "./employees/EmployeeProvider";
 import { ProductProvider } from "./products/ProductsProvider";
 import { TransactionProvider } from "./pages/transactions/TransactionsProvider";
 import { ProductList } from "./products/ProductsList"
+import { ProductDetails } from "./products/ProductDetails"
+import { EmployeeList } from "./employees/EmployeeList";
 
 
 
@@ -52,6 +54,12 @@ export const ApplicationViews = () => {
         </Route>
         <Route path="/Products">
           <ProductList/>
+        </Route>
+        <Route path="/Products/Details">
+          <ProductDetails/>
+        </Route>
+        <Route path="/ManageStaff">
+          <EmployeeList/>
         </Route>
             </TransactionProvider>
           </EmployeeProvider>
