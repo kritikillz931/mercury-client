@@ -10,9 +10,9 @@ export const Topbar = () => {
 
 let date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
 
-let time = today.getHours() + ":" + today.getMinutes()
 
-let dateTime = date+' | '+time;
+
+let dateTime = date
     return (
         <div className="topbar">
             <div className="topbarwrapper">

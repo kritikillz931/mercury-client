@@ -62,7 +62,7 @@ export const WidgetsLarge = () => {
                             className="widgetsLargeImg" />
                             <span className="widgetLargeName">{t.name}</span>
                         </td> 
-                            <td className="widgetsLargeAmount">{t.revenue}</td>
+                            <td className="widgetsLargeAmount">{new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD' }).format(t.revenue)}</td>
                     </tr>                         
 })}
                 </table>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { ProductContext } from "./ProductsProvider"
 import "../products/Products.css"
 import { Button } from "@material-ui/core"
-import { useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 
 export const ProductList = (props) => {
@@ -12,35 +12,34 @@ export const ProductList = (props) => {
     useEffect(() => {
         getProducts()
     }, [])
-
-
+    
+    
     return (
         <article className="productInfo">
 {
-
-        
-        product.map(p => {
-            return (
-
-        <section key={`product--${p.id}`} className="product">
+    
+    
+    product.map(p => {
+        return (
+            
+            <section key={`product--${p.id}`} className="product">
             <div className="featured">
             <div className="featuredProduct">
             <span className="featuredTitle">{p.name}</span>
             <div className="featuredProductContainer">
-            <span><img src={p.image} className="featuredProductImage"/></span>
+            <span><Link to="/Product/Details"><img src={p.image}  className="featuredProductImage"
+             /></Link></span>
             </div>
-            <div><Button onClick={e => {
-                e.preventDefault()
-                history.push("/Products/Details")
-            }}>Details</Button></div>
             </div>
             </div>
         </section>
                 )
+                
+            }
+            )
             
         }
-        )
-    }
+        <Button className="button">New Product</Button>
     </article>
     )
 }

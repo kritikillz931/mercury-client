@@ -34,7 +34,7 @@ export const Sidebar =() => {
                 <div className="sidebarMenu"></div>
                 <h3 className="sidebarTitle">Staff</h3>
                 <ul className="sidebarList">
-                    <Link to="/ManageStaff" className="link" >
+                    <Link to="/employees" className="link" >
                     <li className="sidebarListItem">
                         <WorkOutline className="sidebarIcon" />
                         Manage
