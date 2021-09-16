@@ -33,8 +33,9 @@ export const EmployeeList = (props) => {
                         <div className="featuredEmployeeContainer">
                         <span><img src={e.image} className="featuredEmployeeImage"/></span>
                         </div>
-                        <div><Button onClick={e => {
-                            e.preventDefault()
+                        <div><Button onClick={event => {
+                            event.preventDefault()
+                            console.log(e.id)
                             history.push(`/Employees/employeeDetail/${e.id}`)
                         }}>Details</Button></div>
                         </div>

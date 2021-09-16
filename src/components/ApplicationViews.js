@@ -59,10 +59,10 @@ export const ApplicationViews = () => {
         <Route path="/Products/Details">
           <ProductDetails/>
         </Route>
-        <Route path="/employees">
+        <Route exact path="/employees">
           <EmployeeList/>
         </Route>
-        <Route path="/employees/employeeDetails/:employeeId(\d+)">
+        <Route exact path="/employees/employeeDetail/:employeeId(\d+)">
           <EmployeeDetails/>
         </Route>
             </TransactionProvider>
