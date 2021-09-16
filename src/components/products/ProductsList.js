@@ -12,17 +12,17 @@ export const ProductList = (props) => {
     useEffect(() => {
         getProducts()
     }, [])
-
-
+    
+    
     return (
         <article className="productInfo">
 {
-
-        
-        product.map(p => {
-            return (
-
-        <section key={`product--${p.id}`} className="product">
+    
+    
+    product.map(p => {
+        return (
+            
+            <section key={`product--${p.id}`} className="product">
             <div className="featured">
             <div className="featuredProduct">
             <span className="featuredTitle">{p.name}</span>
@@ -34,10 +34,12 @@ export const ProductList = (props) => {
             </div>
         </section>
                 )
+                
+            }
+            )
             
         }
-        )
-    }
+        <Button className="button">New Product</Button>
     </article>
     )
 }
