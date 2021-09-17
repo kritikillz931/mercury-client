@@ -18,6 +18,7 @@ import { ProductDetails } from "./products/ProductDetails"
 import { EmployeeList } from "./employees/EmployeeList";
 import { EmployeeDetails } from "./employees/EmployeeDetails"
 import { ProductForm } from "./products/ProductForm";
+import { EmployeeForm } from "./employees/EmployeeForm"
 
 
 
@@ -38,36 +39,25 @@ export const ApplicationViews = () => {
             <ProductProvider>
           <EmployeeProvider>
             <TransactionProvider>
-
-              
-
-
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/users">
-          <UserList/>
-        </Route>
-        <Route path="/user/:userId">
-          <User/>
-        </Route>
-        <Route path="/newUser">
-          <NewUser/>
-        </Route>
-        <Route path="/Products">
+
+{/* ------------------------------------------------------------------------------------- */}
+        <Route exact path="/Products">
           <ProductList/>
         </Route>
-        <Route path="/Products/Details">
-          <ProductDetails/>
+        <Route path="/products/new">
+          <ProductForm/>
         </Route>
+
+{/* ------------------------------------------------------------------------------------- */}
+
         <Route exact path="/employees">
           <EmployeeList/>
         </Route>
-        <Route exact path="/employees/employeeDetail/:employeeId(\d+)">
-          <EmployeeDetails/>
-        </Route>
-        <Route exact path="/products/new">
-          <ProductForm/>
+        <Route path="/employees/new">
+          <EmployeeForm/>
         </Route>
             </TransactionProvider>
           </EmployeeProvider>

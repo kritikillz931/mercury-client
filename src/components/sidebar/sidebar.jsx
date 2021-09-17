@@ -1,5 +1,5 @@
 import "./sidebar.css"
-import { LineStyle, Timeline, TrendingUp, PermIdentity, Storefront, AttachMoney, BarChart, MailOutline, DynamicFeed, ChatBubbleOutline, Report, WorkOutline, Settings } from "@material-ui/icons"
+import { LineStyle, Timeline, TrendingUp, PermIdentity, Storefront, AttachMoney, BarChart, MailOutline, DynamicFeed, ChatBubbleOutline, Report, WorkOutline, Settings, PlusOne, PlusOneRounded, PlusOneOutlined, PlusOneSharp } from "@material-ui/icons"
 import { Link } from "react-router-dom"
 
 export const Sidebar =() => {
@@ -24,6 +24,13 @@ export const Sidebar =() => {
                         Products
                     </li>
                     </Link>
+                    <Link to="/Products/New" className="link">
+
+                    <li className="sidebarListItem">
+                        <PlusOne className="sidebarIcon" />
+                            Add Products
+                    </li>
+                    </Link>
                     <Link to="/Transactions" className="link">
                     <li className="sidebarListItem">
                         <AttachMoney className="sidebarIcon" />
@@ -38,6 +45,12 @@ export const Sidebar =() => {
                     <li className="sidebarListItem">
                         <WorkOutline className="sidebarIcon" />
                         Manage
+                    </li>
+                    </Link>
+                    <Link to="/employees/new" className="link" >
+                    <li className="sidebarListItem">
+                        <PlusOne className="sidebarIcon" />
+                        Add Employee
                     </li>
                     </Link>
                 </ul>

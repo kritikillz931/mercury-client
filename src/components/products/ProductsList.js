@@ -39,7 +39,6 @@ export const ProductList = (props) => {
             )
             
         }
-        <Button className="button">New Product</Button>
     </article>
     )
 }

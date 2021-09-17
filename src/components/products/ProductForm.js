@@ -17,7 +17,7 @@ export const ProductForm = () => {
     image: "",
     name: "",
     cost: 0,
-    priceSold: 10,
+    priceSold: 0,
     stock: 0,
     departmentId: 0
   })
@@ -34,11 +34,6 @@ export const ProductForm = () => {
     <form className="gameForm">
       <h2 className="gameForm__title">Add New Product</h2>
       <fieldset>
-        <button className="btn btn-2 btn-sep icon-create"
-          onClick={() => {
-            history.push({ pathname: "/products/new" })
-          }}
-        >Save Product</button>
         <div className="form-group">
           <label htmlFor="image">Image </label>
           <input type="text" name="image" required autoFocus className="form-control"
