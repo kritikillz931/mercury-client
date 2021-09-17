@@ -22,13 +22,13 @@ export const ProductList = (props) => {
     product.map(p => {
         return (
             
-            <section key={`product--${p.id}`} className="product">
+            <section key={`product--${p.id}`} className="product" onClick={() => history.push(`/products/details/${p.id}`)}>
             <div className="featured">
             <div className="featuredProduct">
             <span className="featuredTitle">{p.name}</span>
             <div className="featuredProductContainer">
-            <span><Link to="/Product/Details"><img src={p.image}  className="featuredProductImage"
-             /></Link></span>
+            <span><img src={p.image}  className="featuredProductImage"
+             /></span>
             </div>
             </div>
             </div>
