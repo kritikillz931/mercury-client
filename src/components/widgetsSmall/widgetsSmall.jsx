@@ -29,7 +29,7 @@ export const WidgetsSmall = (props) => {
                 return <li className="widgetsSmallListItem">
                 <img src={e.image} alt="" className="widgetsSmallImg" />
                 <div className="widgetsSmallUser">
-                    <span className="widgetsSmallUsername">{e.user.first_name} {e.user.last_name}</span>
+                    <span className="widgetsSmallUsername">{e.first_name} {e.last_name}</span>
                     <span className="widgetsSmallUserTitle">Monthly Sales - {e.monthlySales}</span>
                 </div>
                 <button className="widgetsSmallButton">

@@ -20,10 +20,28 @@ export const EmployeeProvider = (props) => {
         return fetch(`http://localhost:8000/employees/employeeDetail/${employeeId}`)
         .then(res => res.json())
     }
+
+    const createEmployee = (employee) => {
+        return fetch("http://localhost:8000/employees", {
+            method: "POST",
+            headers: {
+                
+                    "Authorization": `Token ${localStorage.getItem("m_token")}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(employee)
+        })
+            .then(response => response.json())
+    }
     
     
         return (
-            <EmployeeContext.Provider value={{ employee, getEmployees, getEmployeesById }} >
+            <EmployeeContext.Provider
+            value={{
+                employee,
+                getEmployees,
+                getEmployeesById,
+                createEmployee }} >
         { props.children }
     </EmployeeContext.Provider>
 )

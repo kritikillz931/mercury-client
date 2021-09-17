@@ -29,7 +29,7 @@ export const EmployeeList = (props) => {
                         <section key={`employee--${e.id}`} className="employee">
                         <div className="featured">
                         <div className="featuredEmployee">
-                        <span className="featuredEmployeeName">{e.user.first_name} {e.user.last_name}</span>
+                        <span className="featuredEmployeeName">{e.first_name} {e.last_name}</span>
                         <div className="featuredEmployeeContainer">
                         <span><img src={e.image} className="featuredEmployeeImage"/></span>
                         </div>
