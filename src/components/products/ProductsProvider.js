@@ -31,14 +31,14 @@ export const ProductProvider = (props) => {
 
 
     const getProductById = productId => {
-        return fetch(`http://localhost:8088/products/${productId}`)
+        return fetch(`http://localhost:8000/products/${productId}`)
             .then(res => res.json())
     }
 
 
 
     const deleteProduct = productId => {
-        return fetch(`http://localhost:8088/products/${productId}`, {
+        return fetch(`http://localhost:8000/products/${productId}`, {
             method: "DELETE"
         })
             .then(getProducts)
@@ -46,9 +46,10 @@ export const ProductProvider = (props) => {
 
 
     const updateProduct = productObj => {
-        return fetch(`http://localhost:8088/products/${productObj.id}`, {
+        return fetch(`http://localhost:8000/products/${productObj.id}`, {
             method: "PUT",
             headers: {
+                "Authorization": `Token ${localStorage.getItem("m_token")}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(productObj)

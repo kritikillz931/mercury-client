@@ -9,13 +9,13 @@ export const WidgetsLarge = () => {
     const { product, getProducts } = useContext(ProductContext)
     useEffect(() => {
         getTransactions()
-        .then(getProducts)
+            .then(getProducts)
     }, [])
 
     let completedTransactions = transaction.filter(t => t.quantitySold >= 1)
-    
-    
-    
+
+
+
 
 
     let productSaleTotals = []
@@ -27,14 +27,14 @@ export const WidgetsLarge = () => {
                 sum += trans.priceSold * trans.quantitySold
             }
         })
-        productSaleTotals.push({"image": item.image, "name":item.name, "revenue": sum})
+        productSaleTotals.push({ "image": item.image, "name": item.name, "revenue": sum })
     })
     console.log(productSaleTotals)
 
-    let sortedTransactions = productSaleTotals.sort(function(a,b){
+    let sortedTransactions = productSaleTotals.sort(function (a, b) {
         return b.quantitySold - a.quantitySold
     })
-    let topThree = sortedTransactions.slice(0,3)
+    let topThree = sortedTransactions.slice(0, 3)
     console.log(topThree)
 
 
@@ -42,30 +42,30 @@ export const WidgetsLarge = () => {
         <div className="widgetsLarge">
             <h3 className="widgetsLargeTitle">
                 Top 3 Products</h3>
-                <table className="widgetsLargeTable">
-                    <tr className="widgetLargeTr">
-                        <th className="widgetsLargeTh">Product</th>
-                        <th className="widgetsLargeTh">Revenue</th>
-                    </tr>
+            <table className="widgetsLargeTable">
+                <tr className="widgetLargeTr">
+                    <th className="widgetsLargeTh">Product</th>
+                    <th className="widgetsLargeTh">Revenue</th>
+                </tr>
 
-{   topThree.map(t => {
-
-
+                {topThree.map(t => {
 
 
 
 
-                 return   <tr className="widgetLargeTr">
+
+
+                    return <tr className="widgetLargeTr">
                         <td className="widgetsLargeUser">
-                            
+
                             <img src={t.image}
-                            className="widgetsLargeImg" />
+                                className="widgetsLargeImg" />
                             <span className="widgetLargeName">{t.name}</span>
-                        </td> 
-                            <td className="widgetsLargeAmount">{new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD' }).format(t.revenue)}</td>
-                    </tr>                         
-})}
-                </table>
+                        </td>
+                        <td className="widgetsLargeAmount">{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(t.revenue)}</td>
+                    </tr>
+                })}
+            </table>
         </div>
     )
 }

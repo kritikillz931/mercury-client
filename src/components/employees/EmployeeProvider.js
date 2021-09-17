@@ -33,6 +33,18 @@ export const EmployeeProvider = (props) => {
         })
             .then(response => response.json())
     }
+
+    const updateEmployee = employeeObj => {
+        return fetch(`http://localhost:8000/employees/${employeeObj.id}`, {
+            method: "PUT",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("m_token")}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(employeeObj)
+        })
+            .then(getEmployees)
+    }
     
     
         return (
@@ -41,10 +53,9 @@ export const EmployeeProvider = (props) => {
                 employee,
                 getEmployees,
                 getEmployeesById,
-                createEmployee }} >
+                createEmployee,
+                updateEmployee }}>
         { props.children }
     </EmployeeContext.Provider>
 )
-    
-    
-    }
+}
